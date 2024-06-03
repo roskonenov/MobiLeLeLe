@@ -18,6 +18,9 @@ public class Offer {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @Column
+    private Integer mileage;
+
     public long getId() {
         return id;
     }
@@ -42,6 +45,15 @@ public class Offer {
 
     public Offer setDescription(String description) {
         this.description = description;
+        return this;
+    }
+
+    public Integer getMileage() {
+        return mileage;
+    }
+
+    public Offer setMileage(Integer mileage) {
+        this.mileage = mileage;
         return this;
     }
 }
