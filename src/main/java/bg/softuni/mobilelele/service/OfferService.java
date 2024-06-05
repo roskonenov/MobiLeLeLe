@@ -5,7 +5,7 @@ import bg.softuni.mobilelele.model.dto.OfferDetailsDTO;
 
 public interface OfferService {
 
-    void addOffer(AddOfferDTO addOfferDTO);
+    long addOffer(AddOfferDTO addOfferDTO);
 
     OfferDetailsDTO getOfferDetails(Long id);
 }

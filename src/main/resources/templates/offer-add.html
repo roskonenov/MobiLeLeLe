@@ -100,7 +100,8 @@
         <div class="row">
             <div class="form-group col-md-6 mb-3">
                 <label class="text-center text-white font-weight-bold" th:for="engineType">Engine</label>
-                <select th:field="*{engineType}" class="form-control">
+                <select th:field="*{engineType}"
+                        th:errorclass="is-invalid" class="form-control">
                     <option value="">- Select engine type -</option>
                     <option
                             th:each="type: ${engineTypes}"
@@ -109,7 +110,7 @@
                         Engine type
                     </option>
                 </select>
-                <p class="errors alert alert-danger">
+                <p class="invalid-feedback errors alert alert-danger">
                     Engine type is required.
                 </p>
             </div>
@@ -136,22 +137,29 @@
             </div>
             <div class="form-group col-md-6 mb-3">
                 <label th:for="mileage" class="text-white font-weight-bold">Mileage</label>
-                <input th:field="*{mileage}" type="number" min="0" max="900000" step="1000"
+                <input th:field="*{mileage}"
+                       th:errorclass="is-invalid" type="number"
                        class="form-control"
                        placeholder="Mileage in kilometers"/>
-                <p class="errors alert alert-danger">
-                    Mileage in kilometers is required.
+                <p class="invalid-feedback errors alert alert-danger">
+                    Mileage is required and must be positive number less than 999 999.
                 </p>
+                <!--                Alternative error display!-->
+                <!--                <small th:errors="*{mileage}" class="text-danger">Mileage errors</small>-->
             </div>
         </div>
 
         <div class="form-group">
             <label class="text-white font-weight-bold" th:for="description">Description</label>
-            <textarea th:field="*{description}" class="form-control" rows="3"
+            <textarea th:field="*{description}"
+                      th:errorclass="is-invalid"
+                      class="form-control" rows="3"
                       placeholder="Description"></textarea>
-            <p class="errors alert alert-danger">
-                Description is required.
+            <p class="invalid-feedback errors alert alert-danger">
+                Description is required and must be between 5 and 255 symbols.
             </p>
+            <!--                Alternative error display!-->
+            <!--            <small th:errors="*{description}" class="text-danger">Description error</small>-->
         </div>
         <div class="form-group">
             <label class="text-white font-weight-bold" for="imageUrl">Image URL</label>

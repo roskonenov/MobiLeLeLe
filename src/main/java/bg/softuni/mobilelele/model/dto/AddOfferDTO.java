@@ -1,13 +1,20 @@
 package bg.softuni.mobilelele.model.dto;
 
 import bg.softuni.mobilelele.model.enums.EngineType;
+import jakarta.validation.constraints.*;
 
 public class AddOfferDTO {
 
+    @NotNull
     private EngineType engineType;
 
+    @NotBlank(message = "{add.offer.description.not.empty}")
+    @Size(message = "{add.offer.description.length}", min = 5, max = 255)
     private String description;
 
+    @NotNull(message = "{add.offer.mileage.not.empty}")
+    @PositiveOrZero(message = "{add.offer.mileage.positive}")
+    @Max(value = 999999, message = "{add.offer.mileage.below.million}")
     private Integer mileage;
 
     public static AddOfferDTO emptyInstance() {

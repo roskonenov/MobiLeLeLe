@@ -20,8 +20,8 @@ public class OfferServiceImpl implements OfferService {
     }
 
     @Override
-    public void addOffer(AddOfferDTO addOfferDTO) {
-        offerRepository.saveAndFlush(modelMapper.map(addOfferDTO, Offer.class));
+    public long addOffer(AddOfferDTO addOfferDTO) {
+        return offerRepository.saveAndFlush(modelMapper.map(addOfferDTO, Offer.class)).getId();
     }
 
     @Override
