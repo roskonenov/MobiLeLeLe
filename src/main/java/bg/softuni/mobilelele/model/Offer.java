@@ -5,11 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "offers")
-public class Offer {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Offer extends BaseEntity {
 
     @Column(name = "engine_type")
     @Enumerated(EnumType.STRING)
@@ -21,14 +17,6 @@ public class Offer {
     @Column
     private Integer mileage;
 
-    public long getId() {
-        return id;
-    }
-
-    public Offer setId(long id) {
-        this.id = id;
-        return this;
-    }
 
     public EngineType getEngineType() {
         return engineType;
