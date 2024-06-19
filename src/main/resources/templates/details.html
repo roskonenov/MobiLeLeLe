@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<div th:replace="~{fragments/navbar::navbar}"></div>
+<div th:replace="~{fragments/navbar::navbar(activeLink = 'add-offer')}"></div>
 
 
 <div class="container-fluid">
@@ -40,7 +40,11 @@
             </ul>
             <div class="card-body">
                 <a class="card-link" href="/">Update</a>
-                <a class="card-link" href="/">Delete</a>
+                <form
+                th:method="delete"
+                th:action="@{/offers/{id}(id=*{id})}">
+                <input class="btn btn-link" type="submit" value="Delete"/>
+                </form>
             </div>
         </div>
         <div class="offer card col-sm-2 col-md-3  col-lg-4 m-1 p-0">
