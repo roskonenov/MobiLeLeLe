@@ -3,7 +3,6 @@ package bg.softuni.mobilelele.web;
 
 import bg.softuni.mobilelele.model.dto.AddOfferDTO;
 import bg.softuni.mobilelele.model.enums.EngineType;
-import bg.softuni.mobilelele.service.CurrentUser;
 import bg.softuni.mobilelele.service.OfferService;
 
 import jakarta.validation.Valid;
@@ -18,11 +17,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class OfferController {
 
     private final OfferService offerService;
-    private final CurrentUser currentUser;
 
-    public OfferController(OfferService offerService, CurrentUser currentUser) {
+    public OfferController(OfferService offerService) {
         this.offerService = offerService;
-        this.currentUser = currentUser;
     }
 
     @ModelAttribute("engineTypes")
@@ -32,7 +29,7 @@ public class OfferController {
 
     @GetMapping("/add")
     public String newOffer(Model model) {
-        if (!currentUser.isLoggedIn()) return "redirect:/";
+//        if (!currentUser.isLoggedIn()) return "redirect:/";
 
         if (!model.containsAttribute("addOfferDTO")) {
             model.addAttribute("addOfferDTO", AddOfferDTO.emptyInstance());
@@ -42,7 +39,7 @@ public class OfferController {
 
     @PostMapping("/add")
     public String createOffer(@Valid AddOfferDTO addOfferDTO, BindingResult bindingResult, RedirectAttributes rAttr){
-        if (!currentUser.isLoggedIn()) return "redirect:/";
+//        if (!currentUser.isLoggedIn()) return "redirect:/";
 
         if (bindingResult.hasErrors()) {
             rAttr.addFlashAttribute("addOfferDTO", addOfferDTO);
@@ -55,7 +52,7 @@ public class OfferController {
 
     @GetMapping("/{id}")
     public String offerDetails(@PathVariable("id") Long id, Model model){
-        if (!currentUser.isLoggedIn()) return "redirect:/";
+//        if (!currentUser.isLoggedIn()) return "redirect:/";
 
         model.addAttribute("offerDetails", offerService.getOfferDetails(id));
         return "details";
@@ -70,7 +67,7 @@ public class OfferController {
 
     @GetMapping("/all")
     public String getAllOffers(Model model){
-        if (!currentUser.isLoggedIn()) return "redirect:/";
+//        if (!currentUser.isLoggedIn()) return "redirect:/";
 
         model.addAttribute("allOffers", offerService.getAllOffers());
         return "offers";

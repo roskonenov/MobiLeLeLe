@@ -1,49 +1,29 @@
 package bg.softuni.mobilelele.service;
 
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 
-@Component
-@SessionScope
-public class CurrentUser {
-    private String firstName;
-    private String lastName;
-    private boolean loggedIn;
+import java.util.Collection;
+
+public class CurrentUser extends User {
+    private final String firstName;
+    private final String lastName;
+
+    public CurrentUser(String username, String password, Collection<? extends GrantedAuthority> authorities, String firstName, String lastName) {
+        super(username, password, authorities);
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public String getFirstName() {
         return firstName;
-    }
-
-    public CurrentUser setFirstName(String firstName) {
-        this.firstName = firstName;
-        return this;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public CurrentUser setLastName(String lastName) {
-        this.lastName = lastName;
-        return this;
-    }
-
-    public boolean isLoggedIn() {
-        return loggedIn;
-    }
-
-    public CurrentUser setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
-        return this;
-    }
-
-    public String getFullName(){
+    public String getFullName() {
         return getFirstName() + " " + getLastName();
-    }
-
-    public void clean(){
-        setFirstName(null);
-        setLastName(null);
-        setLoggedIn(false);
     }
 }

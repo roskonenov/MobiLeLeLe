@@ -7,8 +7,8 @@ import jakarta.validation.constraints.NotBlank;
 
 public class LoginDTO {
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "{register.user.email.not.empty}")
+    @Email(message = "{register.user.email.not.empty}" )
     private String email;
     @NotBlank
     @Password
