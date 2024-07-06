@@ -1,6 +1,6 @@
 package bg.softuni.mobilelele.service.impl;
 
-import bg.softuni.mobilelele.model.User;
+import bg.softuni.mobilelele.model.entity.User;
 import bg.softuni.mobilelele.repository.UserRepository;
 import bg.softuni.mobilelele.service.CurrentUser;
 import org.springframework.security.core.userdetails.UserDetails;

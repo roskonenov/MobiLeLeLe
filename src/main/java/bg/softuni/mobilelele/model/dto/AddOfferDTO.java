@@ -6,6 +6,10 @@ import jakarta.validation.constraints.*;
 public class AddOfferDTO {
 
     @NotNull
+    @PositiveOrZero
+    private Integer price;
+
+    @NotNull
     private EngineType engineType;
 
     @NotBlank(message = "{add.offer.description.not.empty}")
@@ -17,11 +21,13 @@ public class AddOfferDTO {
     @Max(value = 999999, message = "{add.offer.mileage.below.million}")
     private Integer mileage;
 
-    public static AddOfferDTO emptyInstance() {
-        return new AddOfferDTO()
-                .setDescription(null)
-                .setEngineType(null)
-                .setMileage(null);
+    public Integer getPrice() {
+        return price;
+    }
+
+    public AddOfferDTO setPrice(Integer price) {
+        this.price = price;
+        return this;
     }
 
     public EngineType getEngineType() {

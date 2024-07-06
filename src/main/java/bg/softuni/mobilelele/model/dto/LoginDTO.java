@@ -10,6 +10,7 @@ public class LoginDTO {
     @NotBlank(message = "{register.user.email.not.empty}")
     @Email(message = "{register.user.email.not.empty}" )
     private String email;
+
     @NotBlank
     @Password
     private String password;

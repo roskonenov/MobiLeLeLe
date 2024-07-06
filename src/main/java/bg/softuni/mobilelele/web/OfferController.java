@@ -27,13 +27,14 @@ public class OfferController {
         return EngineType.values();
     }
 
+    @ModelAttribute("addOfferDTO")
+    public AddOfferDTO addOfferDTO(){
+        return new AddOfferDTO();
+    }
+
     @GetMapping("/add")
     public String newOffer(Model model) {
 //        if (!currentUser.isLoggedIn()) return "redirect:/";
-
-        if (!model.containsAttribute("addOfferDTO")) {
-            model.addAttribute("addOfferDTO", AddOfferDTO.emptyInstance());
-        }
         return "offer-add";
     }
 

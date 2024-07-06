@@ -3,9 +3,13 @@ package bg.softuni.mobilelele.model.dto;
 import bg.softuni.mobilelele.model.enums.EngineType;
 
 public class OfferDetailsDTO {
+
     private Long id;
+
     private EngineType engineType;
+
     private Integer mileage;
+
     private String description;
 
     public Long getId() {

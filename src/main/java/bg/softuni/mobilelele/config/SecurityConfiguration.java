@@ -16,7 +16,8 @@ public class SecurityConfiguration {
     private static final String[] AUTHORIZATION_LIST = {
             "/",
             "/users/login",
-            "/users/register"
+            "/users/register",
+            "/api/convert"
     };
 
     @Bean
@@ -30,7 +31,7 @@ public class SecurityConfiguration {
                         .usernameParameter("email")
                         .passwordParameter("password")
                         .defaultSuccessUrl("/")
-//                        .failureForwardUrl("users/login-error")
+                        .failureForwardUrl("/users/login-error")
                 ).logout(logout -> logout
                         .logoutUrl("/users/logout")
                         .logoutSuccessUrl("/")

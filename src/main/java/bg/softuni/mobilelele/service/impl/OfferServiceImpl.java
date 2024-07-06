@@ -1,6 +1,6 @@
 package bg.softuni.mobilelele.service.impl;
 
-import bg.softuni.mobilelele.model.Offer;
+import bg.softuni.mobilelele.model.entity.Offer;
 import bg.softuni.mobilelele.model.dto.AddOfferDTO;
 import bg.softuni.mobilelele.model.dto.OfferDetailsDTO;
 import bg.softuni.mobilelele.model.dto.offerSummaryDTO;

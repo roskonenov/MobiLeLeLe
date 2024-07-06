@@ -1,4 +1,4 @@
-package bg.softuni.mobilelele.model;
+package bg.softuni.mobilelele.model.entity;
 
 import bg.softuni.mobilelele.model.enums.EngineType;
 import jakarta.persistence.*;
@@ -16,7 +16,6 @@ public class Offer extends BaseEntity {
 
     @Column
     private Integer mileage;
-
 
     public EngineType getEngineType() {
         return engineType;
