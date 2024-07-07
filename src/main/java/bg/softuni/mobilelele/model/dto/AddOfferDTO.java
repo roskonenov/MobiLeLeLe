@@ -5,8 +5,8 @@ import jakarta.validation.constraints.*;
 
 public class AddOfferDTO {
 
-    @NotNull
-    @PositiveOrZero
+    @NotNull(message = "{add.offer.price.not.empty}")
+    @PositiveOrZero(message = "{add.offer.price.positive}")
     private Integer price;
 
     @NotNull

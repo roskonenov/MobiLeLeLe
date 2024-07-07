@@ -3,6 +3,7 @@ package bg.softuni.mobilelele.service;
 import bg.softuni.mobilelele.model.dto.ExRateDTO;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 public interface ExRatesService {
@@ -16,4 +17,6 @@ public interface ExRatesService {
     Optional<BigDecimal> getExRate(String from, String to);
 
     BigDecimal convert(String from, String to, BigDecimal amount);
+
+    List<String> findAllCurrencies();
 }

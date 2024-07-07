@@ -17,6 +17,7 @@ public class SecurityConfiguration {
             "/",
             "/users/login",
             "/users/register",
+            "/users/login-error",
             "/api/convert"
     };
 
@@ -30,8 +31,8 @@ public class SecurityConfiguration {
                         .loginPage("/users/login")
                         .usernameParameter("email")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/")
-                        .failureForwardUrl("/users/login-error")
+                        .defaultSuccessUrl("/", true)
+                        .failureUrl("/users/login-error")
                 ).logout(logout -> logout
                         .logoutUrl("/users/logout")
                         .logoutSuccessUrl("/")

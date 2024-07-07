@@ -7,6 +7,9 @@ import jakarta.persistence.*;
 @Table(name = "offers")
 public class Offer extends BaseEntity {
 
+    @Column(nullable = false)
+    private Integer price;
+
     @Column(name = "engine_type")
     @Enumerated(EnumType.STRING)
     private EngineType engineType;
@@ -14,8 +17,17 @@ public class Offer extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column
+    @Column(nullable = false)
     private Integer mileage;
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public Offer setPrice(Integer price) {
+        this.price = price;
+        return this;
+    }
 
     public EngineType getEngineType() {
         return engineType;

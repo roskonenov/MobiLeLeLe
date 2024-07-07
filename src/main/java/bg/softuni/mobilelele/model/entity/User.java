@@ -1,8 +1,8 @@
 package bg.softuni.mobilelele.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -17,6 +17,11 @@ public class User extends BaseEntity{
     private String email;
 
     private String password;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<Role> roles;
 
     public String getFirstName() {
         return firstName;
@@ -51,6 +56,15 @@ public class User extends BaseEntity{
 
     public User setPassword(String password) {
         this.password = password;
+        return this;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public User setRoles(List<Role> roles) {
+        this.roles = roles;
         return this;
     }
 

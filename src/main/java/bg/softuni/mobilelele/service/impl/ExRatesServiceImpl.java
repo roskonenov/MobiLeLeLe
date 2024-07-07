@@ -12,6 +12,7 @@ import org.springframework.web.client.RestClient;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -88,5 +89,13 @@ public class ExRatesServiceImpl implements ExRatesService {
         return getExRate(from, to)
                 .orElseThrow(() -> new ObjectNotFoundException("Conversion from " + from + " to " + to + " is not possible"))
                 .multiply(amount);
+    }
+
+    @Override
+    public List<String> findAllCurrencies() {
+        return exRatesRepository.findAll()
+                .stream()
+                .map(ExRate::getCurrency)
+                .toList();
     }
 }

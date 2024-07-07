@@ -1,6 +1,6 @@
 package bg.softuni.mobilelele.web;
 
-import bg.softuni.mobilelele.service.CurrentUser;
+import bg.softuni.mobilelele.model.user.CurrentUser;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;

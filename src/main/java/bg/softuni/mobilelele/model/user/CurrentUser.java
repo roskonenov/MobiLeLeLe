@@ -1,4 +1,4 @@
-package bg.softuni.mobilelele.service;
+package bg.softuni.mobilelele.model.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

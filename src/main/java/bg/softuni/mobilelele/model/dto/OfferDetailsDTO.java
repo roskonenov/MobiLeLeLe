@@ -2,9 +2,13 @@ package bg.softuni.mobilelele.model.dto;
 
 import bg.softuni.mobilelele.model.enums.EngineType;
 
+import java.util.List;
+
 public class OfferDetailsDTO {
 
     private Long id;
+
+    private Integer price;
 
     private EngineType engineType;
 
@@ -12,12 +16,23 @@ public class OfferDetailsDTO {
 
     private String description;
 
+    private List<String> allCurrencies;
+
     public Long getId() {
         return id;
     }
 
     public OfferDetailsDTO setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public OfferDetailsDTO setPrice(Integer price) {
+        this.price = price;
         return this;
     }
 
@@ -45,6 +60,15 @@ public class OfferDetailsDTO {
 
     public OfferDetailsDTO setDescription(String description) {
         this.description = description;
+        return this;
+    }
+
+    public List<String> getAllCurrencies() {
+        return allCurrencies;
+    }
+
+    public OfferDetailsDTO setAllCurrencies(List<String> allCurrencies) {
+        this.allCurrencies = allCurrencies;
         return this;
     }
 }

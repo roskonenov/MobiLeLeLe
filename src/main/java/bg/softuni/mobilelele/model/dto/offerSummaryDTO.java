@@ -8,6 +8,8 @@ public class offerSummaryDTO {
 
     private Integer mileage;
 
+    private Integer price;
+
     private EngineType engineType;
 
     public long getId() {
@@ -25,6 +27,15 @@ public class offerSummaryDTO {
 
     public offerSummaryDTO setMileage(Integer mileage) {
         this.mileage = mileage;
+        return this;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public offerSummaryDTO setPrice(Integer price) {
+        this.price = price;
         return this;
     }
 
